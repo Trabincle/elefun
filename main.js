@@ -50,13 +50,14 @@ class MemoryGame {
 
     const boardElement = document.createElement('div');
     boardElement.classList.add('memory-container');
+
+    // delegate event handling to board
+    boardElement.addEventListener('click', e => this.cardClicked(e));
+
     this.board.forEach((card, idx) => {
       const cardElement = document.createElement('button');
       cardElement.id = 'card' + idx;
       cardElement.classList.add('card', card.state);
-      if (card.state === 'hidden') {
-        cardElement.addEventListener('click', e => this.cardClicked(e));
-      }
 
       const symbolSpan = document.createElement('span');
       symbolSpan.classList.add('symbol', card.state);
@@ -69,22 +70,23 @@ class MemoryGame {
   }
 
   cardClicked(e) {
-    // get card DOM element
-    const card = e.currentTarget;
+    const card = e.target.closest('.card');
 
     // find card in board
     const cardID = card.getAttribute('id');
     const cardIndex = cardID.substring(cardID.search(/[0-9]+/));
 
-    this.turnCard(cardIndex);
-    if (this.turnedCards.length >= 2) {
-      if (this.checkPair()) {
-        this.clearPair();
-      } else {
-        this.resetBoard();
+    if (this.board[cardIndex].state === 'hidden') {
+      this.turnCard(cardIndex);
+      if (this.turnedCards.length >= 2) {
+        if (this.checkPair()) {
+          this.clearPair();
+        } else {
+          this.resetBoard();
+        }
       }
+      this.drawBoard();
     }
-    this.drawBoard();
   }
 
   turnCard(id) {
