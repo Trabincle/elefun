@@ -1,0 +1,69 @@
+html {
+  font-family: 'Josefin Sans', monospace;
+  font-size: 10px;
+}
+
+body {
+  background: #dce9f2;
+  text-align: center;
+}
+
+h1 {
+  font-size: 4.8rem;
+  margin: 1em;
+  color: #2eaaf2;
+  font-weight: normal;
+}
+
+footer > p {
+  font-size: 1.6rem;
+  margin: 1.2em;
+  color: #2eaaf2;
+}
+
+a {
+  color: #2eaaf2;
+}
+
+.container {
+  margin: 0 auto;
+}
+
+.memory-container {
+  display: inline-flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 600px;
+}
+
+.card {
+  flex: 1 0 24%;
+  margin: 2px;
+  height: 120px;
+  border: none;
+  padding: 0;
+}
+
+.card.turned {
+  background: #2eaaf2;
+}
+
+.card.hidden {
+  background: #606d82;
+}
+
+.card.hidden:hover {
+  background: #7888a1;
+}
+
+.card.cleared {
+  background: #503eb8;
+}
+
+.symbol {
+  font-size: 4.2rem;
+}
+
+.symbol.hidden {
+  opacity: 0;
+}
