@@ -76,17 +76,19 @@ class MemoryGame {
     const cardID = card.getAttribute('id');
     const cardIndex = cardID.substring(cardID.search(/[0-9]+/));
 
+    if (this.turnedCards.length >= 2) {
+		  this.resetBoard();
+    }
+
     if (this.board[cardIndex].state === 'hidden') {
       this.turnCard(cardIndex);
       if (this.turnedCards.length >= 2) {
         if (this.checkPair()) {
           this.clearPair();
-        } else {
-          this.resetBoard();
         }
       }
-      this.drawBoard();
     }
+    this.drawBoard();
   }
 
   turnCard(id) {
