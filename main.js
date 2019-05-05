@@ -118,6 +118,6 @@ class MemoryGame {
   }
 }
 
-const EMOJI = ['🌭', '🎈', '💎', '🐻', '🚀', '🍱', '🐸', '🐳'];
+const EMOJI = ['\u{1F32D}', '\u{1F388}', '\u{1F48E}', '\u{1F43B}', '\u{1F680}', '\u{1F371}', '\u{1F438}', '\u{1F433}'];
 
 game1 = new MemoryGame(document.querySelector('.memory1'), EMOJI);
